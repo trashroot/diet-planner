@@ -1,0 +1,7 @@
+{
+  "name": "diet-tracker",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

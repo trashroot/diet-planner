@@ -1,0 +1,33 @@
+.home{
+    /* --background: linear-gradient(to right, var(--ion-color-primary), var(--ion-color-medium)); */
+    --background: var(--ion-color-primary);
+}
+
+ion-button{
+    text-transform: none;
+    --color: #FFFFFF;
+}
+
+.home_layout{
+    display:flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.home_details{
+    flex-basis: 60%;
+    align-self: center;
+    color: var(--ion-color-light);
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.home_user{
+    flex-basis: 20%;
+}
+
+.home_card{
+    width: 40%;
+}
+
+
