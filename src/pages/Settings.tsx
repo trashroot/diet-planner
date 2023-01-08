@@ -1,8 +1,15 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-
-
+import { IonButton, IonContent, IonHeader, IonPage, IonTitle, IonToolbar, useIonRouter } from '@ionic/react';
+import {deletAccount} from '../helper/Database'
 
 const Settings: React.FC = () => {
+  const router = useIonRouter()
+
+  const logout = () => {
+    deletAccount().then(() => {
+      router.push('/', 'root', 'replace');
+    })
+  }
+
   return (
     <IonPage>
       <IonHeader>
@@ -11,7 +18,7 @@ const Settings: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen className='ion-padding'> 
-        I am on setting.
+        <IonButton onClick={logout}>Logout</IonButton>
       </IonContent>
     </IonPage>
   );

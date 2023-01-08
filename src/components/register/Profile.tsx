@@ -35,13 +35,13 @@ const Profile: React.FC = () => {
 
         const cal = calculateCal(weight, height, age, gender, activity);
         // setDailyCalInit({...dailyCalInit, dailyCal: cal });
-
+        
         // set up db for app
         dbInIt().then(() => {
           console.log("DB Imported.");
           insertData(weight, height, age, gender, activity,cal, dailyWater).then(() => {
             console.log("Profile Created.");
-            router.push("/account/diary");
+            router.push("/account/diary", 'root', 'replace');
           })
           .catch(()=>{
             setIsLoading(false);

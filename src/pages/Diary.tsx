@@ -20,8 +20,7 @@ const Diary: React.FC = () => {
   const {dailyCal, dailyWater, calConsumed, waterConsumed} = dailyCalInit;
   const [presentAlert] = useIonAlert();
 
-  useEffect(() => {  
-    
+  useEffect(() => {      
     getStatsData().then((data) => {
       console.log("data11>>>", data);
       setDailyCalInit({...dailyCalInit, dailyCal:data[0].daily_cal, dailyWater: data[0].daily_water, calConsumed: data[0].consumed_cal ? data[0].consumed_cal : 0, waterConsumed: data[0].consumed_water? data[0].consumed_water : 0});

@@ -1,14 +1,35 @@
+import { SplashScreen } from '@capacitor/splash-screen';
 import { 
   IonButton,
   IonContent, 
   IonPage, 
-  IonRouterLink
+  IonRouterLink,
+  useIonRouter
 } from '@ionic/react';
+import { useEffect } from 'react';
+import { loginStatus } from '../helper/Database';
 
 import './Home.css';
 
 const Home: React.FC = () => {
+
+  const router = useIonRouter();
   
+  useEffect(() => {
+    loginStatus().then((res) => {
+      console.log(`Res >>>>`, res);
+      if(res){
+        router.push('/account/diary');
+      }
+    }).finally(() => {
+      setTimeout(() =>{
+        SplashScreen.hide().then(() => {
+          console.log(`Splesh screen hidden.`);
+        })
+      }, 2000)
+    })
+  }, [])
+
   return (
     <IonPage> 
       <IonContent fullscreen className='ion-padding home'> 
